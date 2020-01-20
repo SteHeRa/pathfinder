@@ -1,0 +1,38 @@
+body {
+    padding-top: 60px;
+}
+
+#visualiser-controls{
+    padding: 15px;
+    /* align-items: center; */
+    width: 70%;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: cornflowerblue;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+}
+
+.container{
+    margin-top: 10px;
+    width: 1120px;
+}
+
+.btn{
+    margin: 10px;
+}
+
+#grid > div {
+    width: 20px;
+    height: 20px;
+    background-color: lightgrey;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.item {
+    width: 100px;
+    height: 100px;
+}

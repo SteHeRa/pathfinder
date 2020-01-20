@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Bootstrap CSS-->
+
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+
+    <!--My CSS-->
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome-->
+
+    <script src="https://kit.fontawesome.com/296fde5448.js" crossorigin="anonymous"></script>
+
+
+    <title>Pathfinder</title>
+</head>
+<body>
+
+    <div>
+        <nav id="navbar" class="navbar navabr-expand-sm fixed-top navbar-dark bg-dark">
+            <a class="navbar-brand">Ste</a>
+        </nav>
+    </div>
+
+    <header id="visualiser-controls" class="container text-left">
+        <div class="row">
+            <div class="col"></div>
+            <button id="startBtn" type="button" class="btn btn-success col"><i class="fas fa-home"></i> Set Start</button>
+            <button id="endBtn" type="button" class="btn btn-danger col"><i class="fas fa-flag-checkered"></i> Set End</button>
+            <button id="wallBtn" type="button" class="btn btn-dark col"><i class="fas fa-ban"></i> Set Walls</button>
+            <div class="dropdown col">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Choose Algorithm
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Djikstras Algorithm</a>
+                  <a class="dropdown-item" href="#">A* Algorithm</a>
+                </div>
+              </div>
+            <button id="findPathBtn" type="button" class="btn btn-primary col"><i class="fas fa-route"></i> Find Path</button>
+            <div class="col"></div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="grid" class="row">
+        </div>
+    </div>
+    
+    <!--Optional JavaScript for Bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+
+    <!--JavaScript for pathfinding-->
+    <script src="script.js"></script>
+</body>
+</html>
