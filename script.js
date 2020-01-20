@@ -34,7 +34,6 @@ for(i=0; i<y; i++){
         grid[i][j] = new node(i, j, newNode.id, false, false, false);
         // nodeItem.appendChild(nodeText);
         document.getElementById('grid').appendChild(newNode);
-        console.log(grid[i][j])
 
         //giving each node an event listener for highlighting when mouse scrolls over
         document.getElementById('x' + j + '-y' + i).addEventListener('mouseover', highlight);
@@ -117,7 +116,7 @@ document.getElementById('wallBtn').addEventListener('click', setWall);
 
 function setState() {
     nodeID = getid(this);
-    if(cursor.start == true) {
+    if(cursor.start == true) {      //Setting node property to start
         document.getElementById(nodeID).style = 'background-color: green';
         for(i=0; i<y; i++){
             for(j=0; j<x; j++){
@@ -126,11 +125,14 @@ function setState() {
                     grid[i][j].end = false;
                     grid[i][j].wall = false;
                     console.log(grid[i][j]);
+                } else if (grid[i][j].end != true && grid[i][j].wall != true){      //Making sure only one start node at a time
+                    document.getElementById(grid[i][j].id).style = 'background-color: lightgrey';
+                    grid[i][j].start = false;
                 }
             }
-        } 
-    }
-    if(cursor.end == true) {
+        }
+    } 
+    if(cursor.end == true) {        //Setting node property to end
         document.getElementById(nodeID).style = 'background-color: red';
         for(i=0; i<y; i++){
             for(j=0; j<x; j++){
@@ -139,19 +141,28 @@ function setState() {
                     grid[i][j].end = true;
                     grid[i][j].wall = false;
                     console.log(grid[i][j]);
+                } else if (grid[i][j].start != true && grid[i][j].wall != true){        //Making sure only one end node at a time
+                    document.getElementById(grid[i][j].id).style = 'background-color: lightgrey';
+                    grid[i][j].end = false;
                 }
             }
         }
     }
-    if(cursor.wall == true) {
+    if(cursor.wall == true) {       //Setting node property to wall
         document.getElementById(nodeID).style = 'background-color: black';
         for(i=0; i<y; i++){
             for(j=0; j<x; j++){
                 if (grid[i][j].id === nodeID){
-                    grid[i][j].start = false;
-                    grid[i][j].end = false;
-                    grid[i][j].wall = true;
-                    console.log(grid[i][j]);
+                    if (grid[i][j].wall == true) {      //If node is already a wall, when clicked wall property removed
+                        grid[i][j].wall = false;
+                        document.getElementById(grid[i][j].id).style = 'background-color: lightgrey';
+                        console.log(grid[i][j]);
+                    } else {
+                        grid[i][j].start = false;
+                        grid[i][j].end = false;
+                        grid[i][j].wall = true;
+                        console.log(grid[i][j]);
+                    }
                 }
             }
         }
