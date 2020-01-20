@@ -54,16 +54,28 @@ function getid(node) {
 //Highlight node that mouse is over
 function highlight() {
     nodeID = getid(this);
-    if(this.start != true && this.end != true && this.wall != true) {           //node won't highlight if it has been set as start/end/wall node
-        document.getElementById(nodeID).style = 'background-color: yellow';
+    for(i=0; i<y; i++){
+        for(j=0; j<x; j++){
+            if (grid[i][j].id === nodeID){
+                if(grid[i][j].start == false && grid[i][j].end == false && grid[i][j].wall == false) {           //node won't un-highlight if it has been set as start/end/wall node
+                    document.getElementById(nodeID).style = 'background-color: yellow';
+                }
+            }
+        }
     }
 }
 
 //Return to original colour when mouse leaves
 function unHighlight() {
     nodeID = getid(this);
-    if(this.start != true && this.end != true && this.wall != true) {           //node won't un-highlight if it has been set as start/end/wall node
-        document.getElementById(nodeID).style = 'background-color: lightgrey';
+    for(i=0; i<y; i++){
+        for(j=0; j<x; j++){
+            if (grid[i][j].id === nodeID){
+                if(grid[i][j].start == false && grid[i][j].end == false && grid[i][j].wall == false) {           //node won't un-highlight if it has been set as start/end/wall node
+                    document.getElementById(nodeID).style = 'background-color: lightgrey';
+                }
+            }
+        }
     }
 }
 
@@ -107,29 +119,41 @@ function setState() {
     nodeID = getid(this);
     if(cursor.start == true) {
         document.getElementById(nodeID).style = 'background-color: green';
-        this.start = true; // this isn't working because we're targeting the html element and not the node object
-        // this.end = false;
-        // this.wall - false;
-        // for(i=0; i<y; i++){
-        //     for(j=0; j<x; j++){
-        //         if(grid[i][j].id != nodeID){        //looping through each node and setting .start to false if it isn't the node we just clicked
-        //             grid[i][j].start = false;       //so that only one node can be the start node at a time
-        //             document.getElementById(grid[i][j].id).style = "background-color: lightgrey";     
-        //         }
-        //     }
-        // }
-        console.log(grid[0][0]);   
+        for(i=0; i<y; i++){
+            for(j=0; j<x; j++){
+                if (grid[i][j].id === nodeID){
+                    grid[i][j].start = true;
+                    grid[i][j].end = false;
+                    grid[i][j].wall = false;
+                    console.log(grid[i][j]);
+                }
+            }
+        } 
     }
     if(cursor.end == true) {
         document.getElementById(nodeID).style = 'background-color: red';
-        this.start = false;
-        this.end = true;
-        this.wall = false;
+        for(i=0; i<y; i++){
+            for(j=0; j<x; j++){
+                if (grid[i][j].id === nodeID){
+                    grid[i][j].start = false;
+                    grid[i][j].end = true;
+                    grid[i][j].wall = false;
+                    console.log(grid[i][j]);
+                }
+            }
+        }
     }
     if(cursor.wall == true) {
         document.getElementById(nodeID).style = 'background-color: black';
-        this.start = false;
-        this.end = false;
-        this.wall =true;
+        for(i=0; i<y; i++){
+            for(j=0; j<x; j++){
+                if (grid[i][j].id === nodeID){
+                    grid[i][j].start = false;
+                    grid[i][j].end = false;
+                    grid[i][j].wall = true;
+                    console.log(grid[i][j]);
+                }
+            }
+        }
     }
 }
