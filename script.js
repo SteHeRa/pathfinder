@@ -7,15 +7,24 @@ let y = 30;
 
 //Constructor for node object
 class node {
-    constructor(y, x, id, start, end, wall) {
+    constructor(y, x, id, visited, distance, start, end, wall, previousNodeX, previousNodeY) {
         this.y = y;
         this.x = x;
         this.id = id;
+        this.visited = visited;
+        this. distance = distance;
         this.start = start;
         this.end = end;
         this.wall = wall;
+        this.previousNodeX = previousNodeX;
+        this.previousNodeY = previousNodeY;
     }
 };
+
+//initialising startNode and endNode
+
+var startNode = null;
+var endNode = null;
 
 //Creating 2D array - grid that will store nodes
 let grid = [];
@@ -27,11 +36,11 @@ for (i=0; i<x; i++){
 //generating all nodes
 for(i=0; i<y; i++){
     for(j=0; j<x; j++){
-        var newNode = document.createElement('div');
+        let newNode = document.createElement('div');
         // var nodeText = document.createTextNode(i + ',' + j);
         newNode.id = 'x' + j + '-y' + i;
         newNode.class = 'node';
-        grid[i][j] = new node(i, j, newNode.id, false, false, false);
+        grid[i][j] = new node(i, j, newNode.id, false, Infinity, false, false, false, null, null);
         // nodeItem.appendChild(nodeText);
         document.getElementById('grid').appendChild(newNode);
 
@@ -73,6 +82,9 @@ function unHighlight() {
                 if(grid[i][j].start == false && grid[i][j].end == false && grid[i][j].wall == false) {           //node won't un-highlight if it has been set as start/end/wall node
                     document.getElementById(nodeID).style = 'background-color: lightgrey';
                 }
+                if(grid[i][j].visited == true) {
+                    document.getElementById(nodeID).style = 'background-color: green';
+                }
             }
         }
     }
@@ -82,13 +94,13 @@ function unHighlight() {
 //----------------
 
 //creating object for cursor properties
-var cursor = {
+let cursor = {
     start: false,
     end: false,
     wall: false,
 };
 
-//adding functions for buttons in control bar
+//adding functions for buttons in control bar (find path function after setState function)
 
 function setStart(){
     cursor.start = true;
@@ -111,6 +123,7 @@ function setWall(){
 document.getElementById('startBtn').addEventListener('click', setStart);
 document.getElementById('endBtn').addEventListener('click', setEnd);
 document.getElementById('wallBtn').addEventListener('click', setWall);
+document.getElementById('findPathBtn').addEventListener('click', findPath);
 
 //Set state of node, when clicked, depending on properties of cursor object
 
@@ -125,6 +138,7 @@ function setState() {
                     grid[i][j].end = false;
                     grid[i][j].wall = false;
                     console.log(grid[i][j]);
+                    startNode = grid[i][j];
                 } else if (grid[i][j].end != true && grid[i][j].wall != true){      //Making sure only one start node at a time
                     document.getElementById(grid[i][j].id).style = 'background-color: lightgrey';
                     grid[i][j].start = false;
@@ -141,6 +155,7 @@ function setState() {
                     grid[i][j].end = true;
                     grid[i][j].wall = false;
                     console.log(grid[i][j]);
+                    endNode = grid[i][j];
                 } else if (grid[i][j].start != true && grid[i][j].wall != true){        //Making sure only one end node at a time
                     document.getElementById(grid[i][j].id).style = 'background-color: lightgrey';
                     grid[i][j].end = false;
@@ -166,5 +181,16 @@ function setState() {
                 }
             }
         }
+    }
+}
+
+
+
+function findPath(){
+    //How to target the nearest nodes to the start node?
+    if (startNode == null || endNode == null || startNode == endNode) {
+        alert('Please select a start node and an end node before trying to find path');
+    } else {
+        Djikstra();
     }
 }
