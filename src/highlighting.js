@@ -22,7 +22,10 @@ function unHighlight() {
                     document.getElementById(nodeID).style = 'background-color: lightgrey';
                 }
                 if(grid[i][j].animated == true) {
-                    document.getElementById(nodeID).style = 'background-color: green';
+                    document.getElementById(nodeID).style = 'background-color: green';  //visited nodes that have been animated turn back to green
+                }
+                if(grid[i][j].shortestPath == true){
+                    document.getElementById(nodeID).style = 'background-color: yellow';    //nodes in the shortest path that have been animated turn back to yellow
                 }
             }
         }

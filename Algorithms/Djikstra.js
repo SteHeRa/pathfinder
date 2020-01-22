@@ -43,6 +43,11 @@ function Djikstra () {
             return visitedNodes;
         }
     }
+    
+    let shortestPath = [currentNode];       //following path of previous node co-ords back to start to get a shortest path
+    while(shortestPath[0].previousNodeX != null && shortestPath[0].previousNodeY != null) {
+        shortestPath.unshift(grid[shortestPath[0].previousNodeY][shortestPath[0].previousNodeX]);
+    }
 
     function animateNodes(i){       //animating nodes as they are visited using setTimeout create animation
         setTimeout(() => {
@@ -51,22 +56,21 @@ function Djikstra () {
         }, 10 * i);
     }
 
-    for(i=0; i<visitedNodes.length; i++){   //calling animate function
-            animateNodes(i);
-    }
-
-    let shortestPath = [currentNode];       //following path of previous node co-ords back to start to get a shortest path
-    while(shortestPath[0].previousNodeX != null && shortestPath[0].previousNodeY != null) {
-        shortestPath.unshift(grid[shortestPath[0].previousNodeY][shortestPath[0].previousNodeX]);
-    }
 
     function animateShortestPath(j){        //animating shortest path nodes - NEED TO TRY AND GET THIS TO ANIMATE AFTER VISITED NODES ANIMATION IS FINISHED
-        setInterval(() => {                                                 //-----------------------------------------------------------------------------
+        setTimeout(() => {                                                 //-----------------------------------------------------------------------------
             document.getElementById(`x${shortestPath[j].x}-y${shortestPath[j].y}`).style = 'background-color: yellow';
+            shortestPath[j].shortestPath = true;
         }, 100 * j);
     }
 
-    for(j=0; j<shortestPath.length; j++){   //calling animate function
-        animateShortestPath(j);
-    }
-}
+    for(i=0; i<visitedNodes.length; i++){   //calling animate function
+        delay = animateNodes(i);   
+    } 
+
+    setTimeout(() => {
+        for(j=0; j<shortestPath.length; j++){   //calling animate function
+            animateShortestPath(j);
+        }
+    }, visitedNodes.length * 10);   //this '10' value needs to be the same as the timeout multiple in the animatedNodes function
+}                                   //or the timings will be off for when the shortest path animation starts.

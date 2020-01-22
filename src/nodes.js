@@ -7,12 +7,13 @@ let y = 30;
 
 //Constructor for node object
 class node {
-    constructor(y, x, id, visited, animated, distance, start, end, wall, previousNodeX, previousNodeY) {
+    constructor(y, x, id, visited, animated, shortestPath, distance, start, end, wall, previousNodeX, previousNodeY) {
         this.y = y;
         this.x = x;
         this.id = id;
         this.visited = visited;
         this.animated = animated;   //will become true if node has been animated (this is to fix bugs with cursor colouring nodes incorrectly)
+        this.shortestPath = shortestPath;
         this. distance = distance;
         this.start = start;
         this.end = end;
@@ -41,7 +42,7 @@ for(i=0; i<y; i++){
         // var nodeText = document.createTextNode(i + ',' + j);
         newNode.id = 'x' + j + '-y' + i;
         newNode.class = 'node';
-        grid[i][j] = new node(i, j, newNode.id, false, false, Infinity, false, false, false, null, null);
+        grid[i][j] = new node(i, j, newNode.id, false, false, false, Infinity, false, false, false, null, null);
         // nodeItem.appendChild(nodeText);
         document.getElementById('grid').appendChild(newNode);
 
