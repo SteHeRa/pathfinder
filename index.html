@@ -20,13 +20,13 @@
     <script src="https://kit.fontawesome.com/296fde5448.js" crossorigin="anonymous"></script>
 
 
-    <title>Pathfinder</title>
+    <title>Path Finder</title>
 </head>
 <body>
 
     <div>
         <nav id="navbar" class="navbar navabr-expand-sm fixed-top navbar-dark bg-dark">
-            <a class="navbar-brand">Ste</a>
+            <a class="navbar-brand">Djikstra's Algorithm Visualiser</a>
         </nav>
     </div>
 
@@ -36,7 +36,8 @@
             <button id="startBtn" type="button" class="btn btn-success col"><i class="fas fa-home"></i> Set Start</button>
             <button id="endBtn" type="button" class="btn btn-danger col"><i class="fas fa-flag-checkered"></i> Set End</button>
             <button id="wallBtn" type="button" class="btn btn-dark col"><i class="fas fa-ban"></i> Set Walls</button>
-            <div class="dropdown col">
+            <!--DROPDOWN WILL BE INTRODUCED AS MORE ALGORITHMS GET ADDED TO VISUALISER-->
+            <!-- <div class="dropdown col">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Choose Algorithm
                 </button>
@@ -44,8 +45,10 @@
                   <a class="dropdown-item" href="#">Djikstras Algorithm</a>
                   <a class="dropdown-item" href="#">A* Algorithm</a>
                 </div>
-              </div>
+              </div> -->
+            <button id="eraseWallBtn" type="button" class="btn btn-secondary col"><i class="fas fa-eraser"></i> Erase Walls</button>
             <button id="findPathBtn" type="button" class="btn btn-primary col"><i class="fas fa-route"></i> Find Path</button>
+            <button id="resetBtn" type="button" class="btn btn-info col"><i class="fas fa-redo"></i> Reset</button>
             <div class="col"></div>
         </div>
     </header>
@@ -61,7 +64,9 @@
     <script src="bootstrap/bootstrap.bundle.min.js"></script>
 
     <!--JavaScript for pathfinding-->
-    <script src="script.js"></script>
+    <script src="src/highlighting.js"></script>
+    <script src="src/controls.js"></script>
+    <script src="src/nodes.js"></script>
     <script src="Algorithms/Djikstra.js"></script>
 </body>
 </html>

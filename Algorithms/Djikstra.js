@@ -33,18 +33,22 @@ function Djikstra () {
                                                                                 //would be better to use min-heap but for this case with so few nodes it shouldn't significantly affect performance
         if (unvisitedNodes[0].visited === true) {
             visitedNodes.push(unvisitedNodes.shift());      //removing visited node from unvisitedNode array and putting it into visitedNode array
-            console.log(visitedNodes);                      //using .shift because after sorting the first item in array will be our visited node (implied in if statement)
+            // console.log(visitedNodes);                      //using .shift because after sorting the first item in array will be our visited node (implied in if statement)
         }                                                   //using .push to add visited nodes to array in order
 
-        if (unvisitedNodes[0].visited === false) {
+        if (unvisitedNodes[0].visited === false && unvisitedNodes[0].distance !== Infinity) {
             currentNode = unvisitedNodes[0];                //setting new current node to the closest unvisited node
+        } else {
+            alert('There is no path between the start node and the end node.')
+            return visitedNodes;
         }
     }
 
     function animateNodes(i){       //animating nodes as they are visited using setTimeout create animation
         setTimeout(() => {
             document.getElementById(`x${visitedNodes[i].x}-y${visitedNodes[i].y}`).style = 'background-color: green';
-        }, 25 * i);
+            visitedNodes[i].animated = true;
+        }, 10 * i);
     }
 
     for(i=0; i<visitedNodes.length; i++){   //calling animate function
