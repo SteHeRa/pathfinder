@@ -2,6 +2,14 @@ body {
     padding-top: 60px;
 }
 
+#pathImage{
+    margin: 15px
+}
+
+img{
+    width: 100%;
+}
+
 #visualiser-controls{
     padding: 15px;
     /* align-items: center; */

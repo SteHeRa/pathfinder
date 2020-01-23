@@ -19,6 +19,18 @@
 
     <script src="https://kit.fontawesome.com/296fde5448.js" crossorigin="anonymous"></script>
 
+    <!--JQuery-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--Tutorial modal loads on page load-->
+
+    <script>
+        $(document).ready(function(){
+            $("#introModal").modal('show');
+        });
+    </script>
+
 
     <title>Path Finder</title>
 </head>
@@ -55,6 +67,110 @@
 
     <div class="container">
         <div id="grid" class="row">
+        </div>
+    </div>
+
+    <!--MODALS FOR TUTORIAL-->
+
+    <div class="modal fade" id="introModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Welcome to my Pathfinding Algorithm Visualiser!</h4>
+                    <p>1/4</p>
+                </div>
+                <div class="modal-body">
+                    <div class = "text-center">
+                        <i id="pathImage" class="fas fa-route fa-9x"></i>
+                    </div>
+                    <p>This is the first iteration of my pathfinding visualiser.<br> You can press "Next" to see a breif tutorial
+                        on how to use the visualiser.<br> Or press "Skip Tutorial" to go straight to using it.
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <button type="button" class="btn btn-info col" data-dismiss="modal">Skip Tutorial</button>
+                            <button type="button" class="btn btn-primary col" data-dismiss="modal" data-toggle="modal" data-target="#modal1">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">1. Start and end points</h4>
+                    <p>2/4</p>
+                </div>
+                <div class="modal-body">
+                    <div class = "text-center">
+                    </div>
+                    <p>In order for the algorithm to find a path, you first need to set a start node and an end node.</p>
+                    <img src="images/start-end.PNG">
+                    <p>To set the start node, press the green "Set Start" button at the top of the page then click on the node on the grid that you would like to set as your starting point.</p>
+                    <p>To set the end node, press the red "Set End" button at the top of the page then click on the node on the grid that you would like to set as your end point.</p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <button type="button" class="btn btn-info col" data-dismiss="modal">Skip Tutorial</button>
+                            <button type="button" class="btn btn-secondary col" data-dismiss="modal" data-toggle="modal" data-target="#introModal">Previous</button>
+                            <button type="button" class="btn btn-primary col" data-dismiss="modal" data-toggle="modal" data-target="#modal2">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal2" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">2. Walls</h4>
+                    <p>3/4</p>
+                </div>
+                <div class="modal-body">
+                    <div class = "text-center">
+                    </div>
+                    <p>You can place walls over nodes. We cannot travel through a wall, so when you place a wall over a node the algorithm has to find a way around it.</p>
+                    <img src="images/walls.PNG">
+                    <p>To place walls on the grid, press the black "Set Walls" button at the top of the page. You can then click and drag your cursor across the grid to place walls.</p>
+                    <p>If you make a mistake, or just want to remove some walls, press the grey "Erase Walls" button at the top of the page. Erasing walls also works by clicking and dragging the cursor.</p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <button type="button" class="btn btn-info col" data-dismiss="modal">Skip Tutorial</button>
+                            <button type="button" class="btn btn-secondary col" data-dismiss="modal" data-toggle="modal" data-target="#modal1">Previous</button>
+                            <button type="button" class="btn btn-primary col" data-dismiss="modal" data-toggle="modal" data-target="#modal3">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal3" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">3. Find Path</h4>
+                    <p>4/4</p>
+                </div>
+                <div class="modal-body">
+                    <div class = "text-center">
+                    </div>
+                    <p>Finally, with all of your walls in place, and your starting and ending nodes set. Simply press the blue "Find Path" button to run the algorithm and find your shortest path.</p>
+                    <img src="images/findPath.PNG">
+                    <p>The program uses 'Djikstra's Algorithm' to find the shortest path between your start and end nodes. I intend to add more algorithms to the program over time.</p>
+                    <p>When your path has been found press the "Reset" button to clear the grid and start again!</p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <button type="button" class="btn btn-info col" data-dismiss="modal">Finish</button>
+                            <button type="button" class="btn btn-secondary col" data-dismiss="modal" data-toggle="modal" data-target="#modal2">Previous</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
