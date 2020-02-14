@@ -41,7 +41,7 @@ for(i=0; i<y; i++){
         let newNode = document.createElement('div');
         // var nodeText = document.createTextNode(i + ',' + j);
         newNode.id = 'x' + j + '-y' + i;
-        newNode.class = 'node';
+        newNode.className = 'node';
         grid[i][j] = new node(i, j, newNode.id, false, false, false, Infinity, false, false, false, null, null);
         // nodeItem.appendChild(nodeText);
         document.getElementById('grid').appendChild(newNode);

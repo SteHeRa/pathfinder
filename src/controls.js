@@ -74,7 +74,7 @@ function setState() {
                     // console.log(grid[i][j]);
                     startNode = grid[i][j];
                 } else if (grid[i][j].end != true && grid[i][j].wall != true){      //Making sure only one start node at a time
-                    document.getElementById(grid[i][j].id).style = 'background-color: lightgrey';
+                    document.getElementById(grid[i][j].id).style = 'background-color: #f0f0f0';
                     grid[i][j].start = false;
                 }
             }
@@ -91,7 +91,7 @@ function setState() {
                     // console.log(grid[i][j]);
                     endNode = grid[i][j];
                 } else if (grid[i][j].start != true && grid[i][j].wall != true){        //Making sure only one end node at a time
-                    document.getElementById(grid[i][j].id).style = 'background-color: lightgrey';
+                    document.getElementById(grid[i][j].id).style = 'background-color: #f0f0f0';
                     grid[i][j].end = false;
                 }
             }
@@ -119,7 +119,7 @@ function wallOn() {
     }
     if(cursor.eraseWall == true) {              //Intergrating erase wall functions as well...
         cursor.mouseClickedDown = true;
-        document.getElementById(nodeID).style = 'background-color: lightgrey';
+        document.getElementById(nodeID).style = 'background-color: #f0f0f0';
         // document.getElementById(nodeID).class = 'wall';
         for(i=0; i<y; i++){
             for(j=0; j<x; j++){
@@ -147,7 +147,7 @@ function wallDrag() {
         }
     }
     if(cursor.eraseWall == true && cursor.mouseClickedDown == true) {
-        document.getElementById(nodeID).style = 'background-color: lightgrey';
+        document.getElementById(nodeID).style = 'background-color: #f0f0f0';
         for(i=0; i<y; i++){
             for(j=0; j<x; j++){
                 if (grid[i][j].id === nodeID){

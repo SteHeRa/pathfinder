@@ -17,7 +17,7 @@ img{
     text-align: center;
     border-style: solid;
     border-width: 1px;
-    border-color: cornflowerblue;
+    border-color: #28A4E5;
     border-radius: 15px;
     background-color: #f0f0f0;
 }
@@ -31,14 +31,33 @@ img{
     margin: 10px;
 }
 
-#grid > div {
+.node {
     width: 20px;
     height: 20px;
-    background-color: lightgrey;
+    background-color: #f0f0f0;
     border-style: solid;
-    border-color: black;
+    border-color: slategray;
     border-width: 1px;
 
+}
+
+.visitedNode {
+    width: 20px;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-style: solid;
+    border-color: slategray;
+    border-width: 1px;
+    animation-name: visitedNodeAnimation;
+    animation-duration: 2s;
+}
+
+@keyframes visitedNodeAnimation {
+    0% {transform: scale(0.3); background-color: #ffdf00;}
+
+    50% {transform: scale(0.6); background-color: lightgreen;}
+
+    100% {transform: scale(1); background-color: cornflowerblue;}
 }
 
 .item {

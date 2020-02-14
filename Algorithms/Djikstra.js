@@ -51,7 +51,8 @@ function Djikstra () {
 
     function animateNodes(i){       //animating nodes as they are visited using setTimeout create animation
         setTimeout(() => {
-            document.getElementById(`x${visitedNodes[i].x}-y${visitedNodes[i].y}`).style = 'background-color: green';
+            document.getElementById(`x${visitedNodes[i].x}-y${visitedNodes[i].y}`).style = 'background-color: #28A4E5';
+            document.getElementById(`x${visitedNodes[i].x}-y${visitedNodes[i].y}`).className = 'visitedNode';
             visitedNodes[i].animated = true;
         }, 10 * i);
     }
@@ -59,7 +60,7 @@ function Djikstra () {
 
     function animateShortestPath(j){        //animating shortest path nodes - NEED TO TRY AND GET THIS TO ANIMATE AFTER VISITED NODES ANIMATION IS FINISHED
         setTimeout(() => {                                                 //-----------------------------------------------------------------------------
-            document.getElementById(`x${shortestPath[j].x}-y${shortestPath[j].y}`).style = 'background-color: yellow';
+            document.getElementById(`x${shortestPath[j].x}-y${shortestPath[j].y}`).style = 'background-color: #ffdf00';
             shortestPath[j].shortestPath = true;
         }, 100 * j);
     }
