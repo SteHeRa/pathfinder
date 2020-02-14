@@ -59,8 +59,3 @@ img{
 
     100%    {transform: scale(1); background-color: cornflowerblue;}
 }
-
-.item {
-    width: 100px;
-    height: 100px;
-}
