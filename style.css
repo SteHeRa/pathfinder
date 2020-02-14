@@ -53,11 +53,11 @@ img{
 }
 
 @keyframes visitedNodeAnimation {
-    0% {transform: scale(0.3); background-color: #ffdf00;}
+    0%      {transform: scale(0.3); background-color: #ffdf00;}
 
-    50% {transform: scale(0.6); background-color: lightgreen;}
+    50%     {transform: scale(0.6); background-color: lightgreen;}
 
-    100% {transform: scale(1); background-color: cornflowerblue;}
+    100%    {transform: scale(1); background-color: cornflowerblue;}
 }
 
 .item {
