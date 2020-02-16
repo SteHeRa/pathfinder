@@ -61,6 +61,7 @@ function Djikstra () {
     function animateShortestPath(j){        //animating shortest path nodes - NEED TO TRY AND GET THIS TO ANIMATE AFTER VISITED NODES ANIMATION IS FINISHED
         setTimeout(() => {                                                 //-----------------------------------------------------------------------------
             document.getElementById(`x${shortestPath[j].x}-y${shortestPath[j].y}`).style = 'background-color: #ffdf00';
+            document.getElementById(`x${shortestPath[j].x}-y${shortestPath[j].y}`).className = 'shortestPathNode';
             shortestPath[j].shortestPath = true;
         }, 100 * j);
     }

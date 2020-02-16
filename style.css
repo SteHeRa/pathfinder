@@ -59,3 +59,20 @@ img{
 
     100%    {transform: scale(1); background-color: cornflowerblue;}
 }
+
+.shortestPathNode {
+    width: 20px;
+    height: 20px;
+    background-color: #ffdf00;
+    border-style: solid;
+    border-color: slategray;
+    border-width: 1px;
+    animation-name: shortestPathNode;
+    animation-duration: 0.3s;
+}
+
+@keyframes shortestPathNode {
+    0%      {transform: scale(0.6);}
+
+    100%    {transform: scale(1);}
+}
